@@ -1,0 +1,8 @@
+{
+   "dataStores": {
+      "redis": {      
+        "host": "redis"       
+        
+      }
+    }
+  }

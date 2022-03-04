@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  api:
+    build:
+      args:
+        - NODE_ENV=production
+      context: ./
+    environment:
+      - NODE_ENV=production  
+    command: bash -c "npm start "
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    links:
+    - redis
+    volumes:
+    - .:/app/      
+  redis:
+    container_name: redis
+    image: redis:6.2.6
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redisdata:/data
+    security_opt:
+      - "no-new-privileges:true"

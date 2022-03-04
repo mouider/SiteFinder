@@ -1,0 +1,24 @@
+{
+  
+  "dataStores": {
+    "redis": {
+      "url":null,
+      "host": "localhost",
+      "port": 6379,
+      "connectTimeout":5000,
+      "password": null,
+      "tls":
+       {
+         "cert":null,
+         "key" :null,
+         "ca" :null
+        },
+      "retry":
+       {
+        "max_retry":5,
+        "period" :1000
+       },
+        "keyPrefix": "solarpower_test"
+    }
+  }
+}
