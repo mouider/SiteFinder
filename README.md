@@ -1,6 +1,6 @@
 
 ## Summary
-API doing TDD in Node with Typescript (and Jest) plus demo GUI using React Front-end 
+Site location finder is a microservice implemented in Typescript using TDD,Redis as Datastorage and React GUI for the popose of demonstration
 
 ![Scheme](images/demo.gif)
 
