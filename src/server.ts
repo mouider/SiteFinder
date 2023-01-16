@@ -9,7 +9,11 @@ import * as redis_client from './repositories/impl/redis/redis_client';
 import { GetSitesRoute } from "./rest/routes/getSitesRoute";
 import { GetSiteByIdRoute } from "./rest/routes/getSiteByIdRoute";
 import { SitesNearBy } from "./rest/routes/sitesNearBy";
-const siteRepository = new RedisSiteRepository(redis_client);
+
+const redis=redis_client.getClient()
+let application:Application;
+redis.connect().then(()=>{
+const siteRepository = new RedisSiteRepository(redis);
 const siteController = new SitesController(siteRepository);
 const importSitesController = new ImportSitesController(siteRepository);
 const sitesRoute = new CreateSitesRoute(siteController);
@@ -23,6 +27,9 @@ routeList.push(getSitesRoute);
 routeList.push(getSiteByIdRoute);
 routeList.push(sitesNearBy);
 routeList.push(importSites);
-const application: Application = new Application(routeList);
-application.startServerOnPort(parseInt(process.env.PORT) | 3000);
+application = new Application(routeList);
+application.startServerOnPort(parseInt(process.env.PORT) | 3000)
+}
+).catch((ex)=>{console.error(ex.message);process.exit(1)})
+
 export default application

@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@types/config": "^0.0.41",
-    "babel-core": "^6.26.3",
     "bluebird": "^3.7.2",
     "config": "^3.3.7",
     "dotenv": "^16.0.0",
